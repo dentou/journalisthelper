@@ -11,7 +11,7 @@
 
 <script>
     var button = document.querySelector('button');
-    var evtSource = new EventSource('/journalisthelper/dataserver.php');
+    var evtSource = new EventSource('/journalisthelper/modules/dataserver.php');
     console.log(evtSource.withCredentials);
     console.log(evtSource.readyState);
     console.log(evtSource.url);
