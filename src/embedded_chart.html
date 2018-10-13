@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <p>Before the script...</p>
+
+    <script src="../node_modules/chart.js/dist/Chart.js"></script>
+    <canvas id="myChart" width="300" height="300"></canvas>
+    <script src="embedded_chart.js">
+
+    </script>
+
+    <p>...After the script.</p>
+
+</body>
+</html>
