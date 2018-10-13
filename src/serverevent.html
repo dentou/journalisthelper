@@ -9,50 +9,8 @@
 <ul>
 </ul>
 
-<<<<<<< HEAD
 <script src="serverevent.js">
 
-=======
-<script>
-    var button = document.querySelector('button');
-    var evtSource = new EventSource('/journalisthelper/modules/dataserver.php');
-
-    console.log(evtSource.withCredentials);
-    console.log(evtSource.readyState);
-    console.log(evtSource.url);
-    var eventList = document.querySelector('ul');
-    evtSource.onopen = function() {
-        console.log("Connection to server opened.");
-    };
-    evtSource.onmessage = function(e) {
-        var newElement = document.createElement("li");
-        newElement.textContent = "message: " + e.data;
-        eventList.appendChild(newElement);
-    };
-    evtSource.onerror = function() {
-        console.log("EventSource failed.");
-    };
-    button.onclick = function() {
-        console.log('Connection closed');
-        evtSource.close();
-    };
-<<<<<<< HEAD
-    // evtSource.addEventListener("ping", function(e) {
-    //   var newElement = document.createElement("li");
-    //
-    //   var obj = JSON.parse(e.data);
-    //   newElement.innerHTML = "ping at " + obj.time;
-    //   eventList.appendChild(newElement);
-    // }, false);
->>>>>>> b60b5700bcad1e95371e9964456e67c7a5d70a27
-=======
-    evtSource.addEventListener("update", function(e) {
-      var newElement = document.createElement("li");
-    
-      var obj = JSON.parse(e.data);
-      console.log(obj);
-    }, false);
->>>>>>> a48bcd96e1e6d05c31829c0d82f67fec76ad76fa
 </script>
 
 </body>
