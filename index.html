@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Index </title>
+    <link rel="stylesheet" href="static/css/nav_css.css">
+    <link rel="stylesheet" href="static/css/card.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  </head>
+  <body>
+    <header>
+    <div class="container">
+      <h1 class="logo">
+        <a href="http://www.sakuraplastic.com/"><img src="static/img/banner-1706.png"></a>
+      </h1>
+
+      <nav>
+        <ul>
+          <li class="home_tab"><a href="#">HOME</a></li>
+          <li class="embeded_tab"><a href="#">EMBEDED</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div id="panel">
+      INFOINFOINFOINFOINFOINFOINFO
+      INFO
+      INFO
+      INFO
+      INFO
+      INFO
+      INFO
+  </div>
+
+  <div id="panel1">
+      SHOW
+      SHOW
+      SHOW
+      SHOW
+      SHOW
+
+      SHOW
+      SHOW
+
+      SHOW
+  </div>
+
+  <script>
+      $("#home_tab").on("click",function(){
+
+          $(".panel").hide();
+          $(".panel1").show();
+      });
+
+</script>
+</html>
