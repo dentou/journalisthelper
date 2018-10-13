@@ -1,11 +1,11 @@
 .container {
 	display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-auto-rows: minmax(100px, auto);
+  grid-auto-rows: minmax(50px, auto);
 }
 
 header {
-  background: #FFD1DC;
+  background: #33FFBD;
 }
 
 header::after {
@@ -16,6 +16,7 @@ header::after {
 
 .logo {
   float: left;
+  margin-top: 10px;
   margin-left: 70px;
 
 }
