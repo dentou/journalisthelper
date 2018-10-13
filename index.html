@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <title> Index </title>
     <link rel="stylesheet" href="static/css/nav_bar.css">
-    <link rel="stylesheet" href="static/css/card.css">
+    <link rel="stylesheet" href="static/css/card.css">  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.0/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.0/dist/semantic.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
   </head>
@@ -17,39 +19,33 @@
 
       <nav>
         <ul>
-          <li class="nav_tab" id="home_tab">home_tab</li>
+          <li class="nav_tab" id="home_tab">HOME</li>
           <li class="nav_tab" id="emebeded_tab">EMBEDED</li>
         </ul>
       </nav>
     </div>
   </header>
   <div id="panel">
-      INFOINFOINFOINFOINFOINFOINFO
-      INFO
-      INFO
-      INFO
-      INFO
-      INFO
-      INFO
+      qwerqwerqwerqwerqwerqw
   </div>
 
   <div id="panel1">
-      SHOW
-      SHOW
-      SHOW
-      SHOW
-      SHOW
-
-      SHOW
-      SHOW
-
-      SHOW
+      hieu hieu hieu
   </div>
 
   <script>
   $(document).ready(function(){
-    $("#flip").click(function(){
-        $("#panel").slideToggle("slow");
+    $("#panel").show();
+    $("#panel1").hide();
+
+    $("#home_tab").click(function(){
+      $("#panel").show();
+      $("#panel1").hide();
+    });
+
+    $("#emebeded_tab").click(function(){
+      $("#panel1").show();
+      $("#panel").hide();
     });
   });
 </script>
