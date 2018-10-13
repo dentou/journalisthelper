@@ -1,5 +1,7 @@
 <?php
 
+// Thu vien API de ket noi MySQL database
+
 class DB {
 	
 	private $pdo;
