@@ -9,8 +9,43 @@
 <ul>
 </ul>
 
+<<<<<<< HEAD
 <script src="serverevent.js">
 
+=======
+<script>
+    var button = document.querySelector('button');
+<<<<<<< HEAD
+    var evtSource = new EventSource('/journalisthelper/modules/dataserver.php');
+=======
+    var evtSource = new EventSource('//localhost/journalisthelper/dataserver.php');
+>>>>>>> 1af2441c4edf619dc444a080c895fc4bdcf43707
+    console.log(evtSource.withCredentials);
+    console.log(evtSource.readyState);
+    console.log(evtSource.url);
+    var eventList = document.querySelector('ul');
+    evtSource.onopen = function() {
+        console.log("Connection to server opened.");
+    };
+    evtSource.onmessage = function(e) {
+        var newElement = document.createElement("li");
+        newElement.textContent = "message: " + e.data;
+        eventList.appendChild(newElement);
+    };
+    evtSource.onerror = function() {
+        console.log("EventSource failed.");
+    };
+    button.onclick = function() {
+        console.log('Connection closed');
+        evtSource.close();
+    };
+    // evtSource.addEventListener("ping", function(e) {
+    //   var newElement = document.createElement("li");
+    //
+    //   var obj = JSON.parse(e.data);
+    //   newElement.innerHTML = "ping at " + obj.time;
+    // }, false);
+>>>>>>> b60b5700bcad1e95371e9964456e67c7a5d70a27
 </script>
 
 </body>
