@@ -1,5 +1,7 @@
 "use strict";
 
+const MAX_DATA_POINTS = 5;
+
 let data = {
     labels: [],
     datasets: [{
@@ -29,13 +31,16 @@ let options = {
                 display: false
             }
         }]
-    }
+    },
+    animation: false
 };
 
-let lineChart = Chart.Line("myChart", {
-    options: options,
-    data: data
-});
+let dataChart;
+drawChart()
+// let dataChart = Chart.Line("myChart", {
+//     options: options,
+//     data: data
+// });
 
 let eventSource = new EventSource('//localhost/journalisthelper/modules/dataserver.php');
 console.log(eventSource.withCredentials);
@@ -57,21 +62,37 @@ eventSource.onerror = function() {
 
 eventSource.addEventListener("update", function (event) {
     let jdata = JSON.parse(event.data);
-    addData(lineChart, 0, jdata.x, jdata.y);
+    addData(dataChart, 0, jdata.x, jdata.y);
 })
 
 eventSource.addEventListener("init", function (event) {
     let jdata = JSON.parse(event.data);
-    lineChart.reset()
-    addData(lineChart, 0, jdata.x, jdata.y);
+
+    dataChart.destroy();
+    dataChart = Chart.Line("myChart", {
+        options: options,
+        data: data
+    });
+    addData(dataChart, 0, jdata.x, jdata.y);
 
     // let jdata = JSON.parse(event.data);
     // console.log(jdata);
 })
 
+function drawChart() {
+    dataChart = Chart.Line("myChart", {
+        options: options,
+        data: data
+    });
+}
+
 function addData(chart, dataSetIndex, label, data) {
     chart.data.labels.push(label);
     chart.data.datasets[dataSetIndex].data.push(data);
+    // console.log(chart.data.datasets[dataSetIndex].data.length);
+    if (chart.data.datasets[dataSetIndex].data.length > MAX_DATA_POINTS) {
+        removeData(chart, dataSetIndex, 0);
+    }
     chart.update();
 }
 
@@ -83,6 +104,8 @@ function removeData(chart, dataSetIndex) {
 
 function removeData(chart, dataSetIndex, removalIndex) {
     if(removalIndex >= 0) { //make sure this element exists in the array
-        data.datasets.splice(removalIndex, 1);
+        data.datasets[dataSetIndex].data.splice(removalIndex, 1);
+        chart.data.labels.splice(removalIndex, 1);
+        chart.update();
     }
 }

@@ -10,7 +10,7 @@ $event = 'init';
 
 while (1) {
 // 1 is always true, so repeat the while loop forever (aka event-loop)
-    $latestData = $db->query('SELECT convert(varchar, getdate(), 103) data, createdDate FROM carbons ORDER BY id DESC LIMIT 5', array());
+    $latestData = $db->query('SELECT data, createdDate FROM carbons ORDER BY id DESC LIMIT 5', array());
 
     // 1 is always true, so repeat the while loop forever (aka event-loop)
     $x = array_column($latestData, 'createdDate');
