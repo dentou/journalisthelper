@@ -1,5 +1,7 @@
 <?php
 
+//File PHP dang nhap va su dung database de dang nhap va dang ki tai khoan
+
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
 header('Access-Control-Max-Age: 1000');
