@@ -4,8 +4,10 @@ header("Content-Type: text/event-stream");
 $counter = rand(1, 10); // a random counter
 while (1) {
 // 1 is always true, so repeat the while loop forever (aka event-loop)
+    $curDate = date(DATE_ISO8601);
+
     $data = array(
-        'x' => rand(1, 100),
+        'x' => $curDate,
         'y' => rand(50, 60)
     );
     $str = json_encode($data);
@@ -13,7 +15,6 @@ while (1) {
         "data: {$str}\n\n";
 
 
-    $curDate = date(DATE_ISO8601);
 //    echo "event: ping\n",
 //        'data: {"time": "' . $curDate . '"}', "\n\n";
 
