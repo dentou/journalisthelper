@@ -1,7 +1,7 @@
 "use strict";
 
 var data = {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+    // labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
     datasets: [{
         label: "Dataset #1",
         backgroundColor: "rgba(255,99,132,0.2)",
@@ -9,7 +9,7 @@ var data = {
         borderWidth: 2,
         hoverBackgroundColor: "rgba(255,99,132,0.4)",
         hoverBorderColor: "rgba(255,99,132,1)",
-        data: [65, 59, 20, 81, 56, 55, 40],
+        // data: [65, 59, 20, 81, 56, 55, 40],
     }]
 };
 
@@ -31,7 +31,7 @@ var options = {
     }
 };
 
-Chart.Line("myChart", {
+var lineChart = Chart.Line("myChart", {
     options: options,
     data: data
 });
