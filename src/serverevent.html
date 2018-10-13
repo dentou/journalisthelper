@@ -15,11 +15,8 @@
 =======
 <script>
     var button = document.querySelector('button');
-<<<<<<< HEAD
     var evtSource = new EventSource('/journalisthelper/modules/dataserver.php');
-=======
-    var evtSource = new EventSource('//localhost/journalisthelper/dataserver.php');
->>>>>>> 1af2441c4edf619dc444a080c895fc4bdcf43707
+
     console.log(evtSource.withCredentials);
     console.log(evtSource.readyState);
     console.log(evtSource.url);
@@ -39,6 +36,7 @@
         console.log('Connection closed');
         evtSource.close();
     };
+<<<<<<< HEAD
     // evtSource.addEventListener("ping", function(e) {
     //   var newElement = document.createElement("li");
     //
@@ -47,6 +45,14 @@
     //   eventList.appendChild(newElement);
     // }, false);
 >>>>>>> b60b5700bcad1e95371e9964456e67c7a5d70a27
+=======
+    evtSource.addEventListener("update", function(e) {
+      var newElement = document.createElement("li");
+    
+      var obj = JSON.parse(e.data);
+      console.log(obj);
+    }, false);
+>>>>>>> a48bcd96e1e6d05c31829c0d82f67fec76ad76fa
 </script>
 
 </body>
