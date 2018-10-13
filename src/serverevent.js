@@ -1,5 +1,5 @@
 var button = document.querySelector('button');
-var eventSource = new EventSource('//localhost/journalisthelper/dataserver.php');
+var eventSource = new EventSource('//localhost/journalisthelper/modules/dataserver.php');
 console.log(eventSource.withCredentials);
 console.log(eventSource.readyState);
 console.log(eventSource.url);

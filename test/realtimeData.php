@@ -23,7 +23,9 @@
 			    success: function(r) {
 			            console.log(r)
 			            var date = document.getElementById("dateField");
-						element.innerHTML = "New Heading";
+						date.innerHTML = "New Heading";
+						var data = document.getElementById("dataField");
+						data.innerHTML = "New Heading";
 			    },
 			    error: function(r) {
 			    		console.log(r)

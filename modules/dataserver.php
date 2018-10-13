@@ -6,22 +6,24 @@ $counter = rand(1, 10); // a random counter
 require_once("../api/DB.php");
 
 $db = new DB('localhost', 'journalisthelper', 'root', '');
+$event = 'init';
 
 while (1) {
 // 1 is always true, so repeat the while loop forever (aka event-loop)
-    $latestData = $db->query('SELECT data, createdDate FROM carbons ORDER BY id DESC LIMIT 1', array())[0];
+    $latestData = $db->query('SELECT data, createdDate FROM carbons ORDER BY id DESC LIMIT 5', array());
 
     // 1 is always true, so repeat the while loop forever (aka event-loop)
-    $x = $latestData['createdDate'];
-    $y = $latestData['data'];
+    $x = array_column($latestData, 'createdDate');
+    $y = array_column($latestData, 'data');
     $data = array(
         'x' => $x,
         'y' => $y
     );
     $str = json_encode($data);
-    echo "event: update\n",
+    echo "event: ".$event."\n",
         "data: {$str}\n\n";
 
+    $event = 'update';
 
     $curDate = date(DATE_ISO8601);
 //    echo "event: ping\n",
