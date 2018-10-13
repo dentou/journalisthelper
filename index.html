@@ -29,14 +29,15 @@
   </header>
 
   <div id="home_tab">
-    <div class="card card-body">
-      <div class="container">
-        <div class="left floated five wide column">
-          <h1>First header</h1>
-          <p>something something</p>
-        </div>
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="static/img/mao.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h1 class="card-title">J.E.A</h1>
+        <p class="card-text">This is a place where you can find there trusty source about climate change problems and implemented them into your article</p>
+        <a href="#" class="btn btn-primary">Find out now!</a>
       </div>
     </div>
+
   </div>
 
   <div class="collapse" id="embeded_tab">
@@ -45,20 +46,4 @@
     </div>
   </div>
 
-  <script>
-  $(document).ready(function(){
-    $("#panel").show();
-    $("#panel1").hide();
-
-    $("#home_tab").click(function(){
-      $("#panel").show();
-      $("#panel1").hide();
-    });
-
-    $("#emebeded_tab").click(function(){
-      $("#panel1").show();
-      $("#panel").hide();
-    });
-  });
-</script>
 </html>
