@@ -13,25 +13,26 @@
     <header>
     <div class="container">
       <h1 class="logo">
-        <a href="http://www.sakuraplastic.com/"><img src="static/img/banner-1706.png"></a>
+        <a href="http://www.sakuraplastic.com/"><img src="static/img/vgu_logo.png " style="width: 200px"></a>
       </h1>
 
       <nav>
         <ul>
           <li class="nav_tab" id="home_nav" >HOME</li>
           <li class="nav_tab" id="emebeded_nav">EMBEDED</li>
+          <li class="nav_tab" id="guide_nav">GUIDE BOOK</li>
         </ul>
       </nav>
     </div>
   </header>
 
   <div id="home_tab" class="container">
-    <div class="card" style="width: 18rem; margin-top: 10px;">
-      <img class="card-img-top" src="static/img/water_drop.jpg" alt="Card image cap">
+    <div class="card" style="width: 18rem; margin-top: 10px; background :#B2E2E7; opacity: 0.9">
+      <img class="card-img-top" src="static/img/fossasia_logo.png" alt="Card image cap">
       <div class="card-body">
         <h1 class="card-title">J.E.A</h1>
         <p class="card-text">This is a place where you can find there trusty source about climate change problems and implemented them into your article</p>
-        <a href="#" class="btn btn-primary">Find out now!</a>
+        <button id="home_link_btn" class="btn btn-primary">Find out now!</button>
       </div>
     </div>
   </div>
@@ -106,6 +107,13 @@
         $("#card_2").append(link_array[1]);
       });
 
+      $("#home_link_btn").click(function(){
+        $("#home_tab").hide();
+        $("#embeded_tab").show();
+        $("#card_1").append(link_array[0]);
+        $("#card_2").append(link_array[1]);
+      });
+
       $("#emebeded_link_btn_1").click(function(){
         $("#link_1").text(link_array[0]);
         $("#emebeded_link_1").toggle();
@@ -116,7 +124,7 @@
         $("#emebeded_link_2").toggle();
       });
 
-
+      
 
     });
   </script>
