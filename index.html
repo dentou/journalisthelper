@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title> Index </title>
-    <link rel="stylesheet" href="static/css/nav_css.css">
+    <link rel="stylesheet" href="static/css/nav_bar.css">
     <link rel="stylesheet" href="static/css/card.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -17,8 +17,8 @@
 
       <nav>
         <ul>
-          <li class="home_tab"><a href="#">HOME</a></li>
-          <li class="embeded_tab"><a href="#">EMBEDED</a></li>
+          <li id="home_tab"><a href="#">HOME</a></li>
+          <li id="embeded_tab"><a href="#">EMBEDED</a></li>
         </ul>
       </nav>
     </div>
@@ -47,11 +47,10 @@
   </div>
 
   <script>
-      $("#home_tab").on("click",function(){
-
-          $(".panel").hide();
-          $(".panel1").show();
-      });
-
+  $(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+  });
 </script>
 </html>
