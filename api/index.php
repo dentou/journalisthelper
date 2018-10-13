@@ -11,7 +11,7 @@ $text;
 
 require_once("DB.php");
 
-$db = new DB('103.57.220.117', 'chatroom', 'root', '@Kh27021997');
+$db = new DB('localhost', 'journalisthelper', 'root', '');
 
 // $_SERVER: get the request method of this page
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { 
@@ -127,6 +127,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			echo '{ "Error" : "Fail deleting cookie" }';
 			http_response_code(401);
 		}
+	} else if ($_GET['url'] == 'testConnection') {
+		echo '{ "Sucess" : "Success connecting to the database!"}';
 	}
 	
 } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
