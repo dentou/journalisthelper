@@ -34,9 +34,9 @@
     </div>
   </header>
 
-  <div id="home_tab" class="container"><!--home tab-->
+  <div id="home_tab" class="container" style="margin-top:50px; grid-template-columns: 1fr; width: 500px;"><!--home tab-->
     <div class="card home_card">
-      <img class="card-img-top" src="static/img/vgu_logo.png" alt="Card image cap">
+      <img class="card-img-top" src="static/img/env.jpeg" alt="Card image cap">
       <div class="card-body">
         <h1 class="card-title">J.E.A</h1>
         <p class="card-text">This is a place where you can find there trusty source about climate change problems and implemented them into your article</p>
@@ -51,7 +51,7 @@
   <div class="collapse container-fluid" id="embeded_tab" style="margin-top: 10px"> <!--embedded tab-->
 
 
-      <div class="container col justify-content-center"><!--container 1-->
+      <div class="container"><!--container 1-->
 
         <div class="card col" style="width:900px;"><!--card tag 1-->
           <div class="card-body">
@@ -76,7 +76,7 @@
         </div>
       </div>
 
-      <div class="container col justify-content-center"><!--container 2-->
+      <div class="container"><!--container 2-->
 
         <div class="card col" style="width:900px;"><!--card tag 2-->
           <div class="card-body">
@@ -102,7 +102,7 @@
 
       </div>
 
-      <div class="container col justify-content-center"><!--container 3-->
+      <div class="container"><!--container 3-->
 
         <div class="card col" style="width:900px;"><!--card tag 3-->
           <div class="card-body">
@@ -127,7 +127,7 @@
         </div>
 
       </div>
-      <div class="container col justify-content-center"><!--container 3-->
+      <div class="container"><!--container 3-->
 
         <div class="card col" style="width:900px;"><!--card tag 3-->
           <div class="card-body">
@@ -193,7 +193,7 @@
       <button class="btn btn-primary" id="test_btn">Insert!</button>
     </div>
 
-    <div class="embed-responsive embed-responsive-16by9" style="width:800px;" id="insert_embedded_test">
+    <div class="embed-responsive embed-responsive-16by9 collapse" style="width:800px; background-color: white;" id="insert_embedded_test">
       
     </div>
 
@@ -319,6 +319,7 @@
       $("#test_btn").click(function(){
         var test_link = $("#test_link").val();
         $("#insert_embedded_test").append(test_link);
+        $("#insert_embedded_test").show();
       });
       
     });
