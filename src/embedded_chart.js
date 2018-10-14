@@ -63,32 +63,13 @@ eventSource.onerror = function() {
     console.log("EventSource failed.");
 };
 
-eventSource.addEventListener("update", function (event) {
-    let jdata = JSON.parse(event.data);
-    addData(dataChart, 0, jdata.x, jdata.y);
-})
 
-eventSource.addEventListener("init", function (event) {
-    console.log(event.data);
-    let jdata = JSON.parse(event.data);
-    dataChart.destroy();
 
-    createDataset(jdata.dataType)
-    dataChart = Chart.Line("myChart", {
-        options: options,
-        data: data
-    });
-    // removeDataset(dataChart, 0);
-    let labels  = jdata.x;
-    let values = jdata.y;
-    let i;
-    for (i = 0; i < labels.length; i++) {
-        addData(dataChart, 0, labels[i], values[i]);
-    }
+eventSource.addEventListener("init", multiDataHandler);
 
-    // let jdata = JSON.parse(event.data);
-    console.log(jdata);
-})
+eventSource.addEventListener("update", singleDataHandler);
+
+eventSource.addEventListener("alldata", multiDataHandler);
 
 function drawChart() {
     dataChart = Chart.Line("myChart", {
@@ -107,19 +88,33 @@ function addData(chart, dataSetIndex, label, data) {
     chart.update();
 }
 
-function createDataset(datasetLabel) {
-    data = {
-        labels: [],
-        datasets: [{
-            label: datasetLabel,
-            backgroundColor: "rgba(255,99,132,0.2)",
-            borderColor: "rgba(255,99,132,1)",
-            borderWidth: 2,
-            hoverBackgroundColor: "rgba(255,99,132,0.4)",
-            hoverBorderColor: "rgba(255,99,132,1)",
-            data: [],
-        }]
-    };
+
+
+function multiDataHandler(event) {
+    console.log(event.data);
+    let jdata = JSON.parse(event.data);
+    dataChart.destroy();
+
+    createDataset(jdata.dataType)
+    dataChart = Chart.Line("myChart", {
+        options: options,
+        data: data
+    });
+    // removeDataset(dataChart, 0);
+    let labels  = jdata.x;
+    let values = jdata.y;
+    let i;
+    for (i = 0; i < labels.length; i++) {
+        addData(dataChart, 0, labels[i], values[i]);
+    }
+
+    // let jdata = JSON.parse(event.data);
+    // console.log(jdata);
+}
+
+function singleDataHandler(event) {
+    let jdata = JSON.parse(event.data);
+    addData(dataChart, 0, jdata.x, jdata.y);
 }
 
 function removeData(chart, dataSetIndex) {
@@ -141,6 +136,7 @@ function removeDataset(chart, removalIndex) {
         data.datasets.splice(removalIndex, 1);
     }
 }
+
 function createDataset(datasetLabel) {
     data = {
         labels: [],
@@ -155,3 +151,4 @@ function createDataset(datasetLabel) {
         }]
     };
 }
+
