@@ -41,6 +41,7 @@
     <script id="embedded_chart" dataType="<?php echo htmlspecialchars($dtVar)?>" displayType="<?php echo htmlspecialchars($displayType)?>" src="embedded_chart.js">
 
     </script>
+    <!--<a href="localhost/journalisthelper">Readmore</a>-->
 
 </body>
 </html>
