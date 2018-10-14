@@ -20,7 +20,8 @@ let data = {
 };
 
 let options = {
-    maintainAspectRatio: false,
+    maintainAspectRatio: true,
+    responsive: true,
     scales: {
         yAxes: [{
             stacked: true,
