@@ -1,7 +1,5 @@
 <?php 
  	$dataType = $_GET['dataType'];
- 	$displayType = $_GET['displayType'];
- 	$timeline = $_GET['timelime'];
 
  	switch ($dataType) {
  		case 'cb':
@@ -10,15 +8,15 @@
  			break;
  		case 'gt':
  			$dtName = "Global Tenperature";
-            $dtvar = "globaltemperature";
+            $dtVar = "globaltemperature";
  			break;
 		case 'si':
 			$dtName = "Sea Ice";
-            $dtvar = "seaice";
+            $dtVar = "seaice";
 			break;
 		case 'sl':
 			$dtName = "Sea Level";
-            $dtvar = "sealevel";
+            $dtVar = "sealevel";
 			break;	
  		default:
  			die('invalid link');

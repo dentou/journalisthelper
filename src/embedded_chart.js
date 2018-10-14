@@ -44,7 +44,7 @@ drawChart()
 //     data: data
 // });
 
-let eventSource = new EventSource('//localhost/journalisthelper/modules/dataserver.php');
+let eventSource = new EventSource('//localhost/journalisthelper/modules/dataserver.php?dataType=' + dataType);
 console.log(eventSource.withCredentials);
 console.log(eventSource.readyState);
 console.log(eventSource.url);

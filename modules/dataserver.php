@@ -1,5 +1,5 @@
 <?php
-$dataType = 'carbons';
+$dataType = $_GET['dataType'];
 date_default_timezone_set("America/New_York");
 header("Content-Type: text/event-stream");
 $counter = rand(1, 10); // a random counter
