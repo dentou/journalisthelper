@@ -1,5 +1,6 @@
 "use strict";
 var dataType = document.getElementById("embedded_chart").getAttribute('dataType');
+var displayType = document.getElementById("embedded_chart").getAttribute('displayType');
 
 const MAX_DATA_POINTS = 5;
 const EVENT_SOURCE = '//localhost/journalisthelper/test/dataserver.php';
@@ -44,7 +45,7 @@ drawChart()
 //     data: data
 // });
 
-let eventSource = new EventSource('//localhost/journalisthelper/modules/dataserver.php?dataType=' + dataType);
+let eventSource = new EventSource('//localhost/journalisthelper/modules/dataserver.php?dataType=' + dataType + '&displayType=' + displayType);
 console.log(eventSource.withCredentials);
 console.log(eventSource.readyState);
 console.log(eventSource.url);
