@@ -23,7 +23,7 @@
         <a href="https://unesco.sciencehack.asia/"><img src="static/img/fossasia_logo.png " style="width: 125px"></a>
       </h1>
 
-      <nav>
+      <nav class="teal lighten-2">
         <ul>
           <li class="nav_tab" id="home_nav" >HOME</li>
           <li class="nav_tab" id="emebeded_nav">EMBEDED</li>
@@ -47,7 +47,7 @@
 
 
 
-  <div class="collapse" id="embeded_tab" class="container-fluid" style="margin-left: 100px; margin-top: 10px"> <!--embedded tab-->
+  <div class="collapse container-fluid" id="embeded_tab" style="margin-left: 100px; margin-top: 10px"> <!--embedded tab-->
 
 
       <form><!--search box-->
@@ -111,24 +111,51 @@
 
   </div>
 
+  <div id="guide_tab" class="collapse container" style="margin-top: 10px;" >
+
+    <div class="row">
+      
+        <div class="card col">
+            <span class="card-title">Summary of The Handbook</span>
+            <embed class="card-body" src="static/summary.pdf" style="height: 700px;"/>
+        </div>
+    
+        <div class="card col">
+            <span class="card-title pdf_card">Full Document of The Handbook</span>
+            <embed class="card-body" src="static/unesco_handbook.pdf" style="height: 700px;"/>
+        </div>
+
+    </div>
+    
+  </div>
+
 </body>
 
   <script>
 
-    var link_array = ["<iframe class=\"embed-responsive-item\" src=\"https://www.youtube.com/embed/ePpPVE-GGJw\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe> ",
+    var link_array = ["<iframe class=\"embed-responsive-item\" src=\"https://www.youtube.com/embed/ePpPVE-GGJw\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe> ", //put embedded link here
                       "<iframe class=\"embed-responsive-item\" src=\"https://www.youtube.com/embed/8A2t_tAjMz8\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe> "]
 
 
     $(document).ready(function(){
 
       $("#home_nav").click(function(){ //home tab
-        $("#home_tab").show();
+        $("#home_tab").toggle();
         $("#embeded_tab").hide();
+        $("#guide_tab").hide();
+
       });
       
       $("#emebeded_nav").click(function(){ //emebedded tab
         $("#home_tab").hide();
-        $("#embeded_tab").show();
+        $("#embeded_tab").toggle();
+        $("#guide_tab").hide();
+      });
+
+      $("#guide_nav").click(function(){ //guide tab
+        $("#home_tab").hide();
+        $("#embeded_tab").hide();
+        $("#guide_tab").toggle();
       });
 
       $("#home_link_btn").click(function(){ //home button
