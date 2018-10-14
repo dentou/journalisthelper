@@ -32,7 +32,7 @@
     <meta charset="UTF-8">
     <title><?php echo htmlspecialchars($dtName);?></title>
 </head>
-<body width="100%" height="100%">
+<body>
 
     <p><?php echo htmlspecialchars($dtName);?> data</p>
 

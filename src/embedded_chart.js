@@ -19,6 +19,8 @@ let data = {
     }]
 };
 
+
+
 let options = {
     maintainAspectRatio: true,
     responsive: true,
@@ -139,15 +141,27 @@ function removeDataset(chart, removalIndex) {
 }
 
 function createDataset(datasetLabel) {
+    let lineColor;
+    if (datasetLabel === "carbons") {
+        lineColor = "rgba(255,99,132,";
+    } else if(datasetLabel === "globaltemperature") {
+        lineColor = "rgba(99,255,132,";
+    } else if (datasetLabel === "seaice") {
+        lineColor = "rgba(0,0,0,";
+    } else if (datasetLabel === "sealevel") {
+        lineColor = "rgba(132,99,255,";
+    } else {
+        lineColor = "rgba(132,255,255,";
+    }
     data = {
         labels: [],
         datasets: [{
             label: datasetLabel,
-            backgroundColor: "rgba(255,99,132,0.2)",
-            borderColor: "rgba(255,99,132,1)",
+            backgroundColor: lineColor + "0.2)",
+            borderColor: lineColor + "1)",
             borderWidth: 2,
-            hoverBackgroundColor: "rgba(255,99,132,0.4)",
-            hoverBorderColor: "rgba(255,99,132,1)",
+            hoverBackgroundColor: lineColor + "0.4)",
+            hoverBorderColor: lineColor + "1)",
             data: [],
         }]
     };

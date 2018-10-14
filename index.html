@@ -26,7 +26,7 @@
       <nav class="teal lighten-2">
         <ul>
           <li class="nav_tab" id="home_nav" >HOME</li>
-          <li class="nav_tab" id="emebeded_nav">EMBEDED</li>
+          <li class="nav_tab" id="emebeded_nav">DATA</li>
           <li class="nav_tab" id="guide_nav">GUIDE BOOK</li>
         </ul>
       </nav>
@@ -47,19 +47,14 @@
 
 
 
-  <div class="collapse container-fluid" id="embeded_tab" style="margin-left: 100px; margin-top: 10px"> <!--embedded tab-->
+  <div class="collapse container-fluid" id="embeded_tab" style="margin-top: 10px"> <!--embedded tab-->
 
 
-    <div class="ui search card" style="width: 1000px"> <!--search box-->
-        <input class="prompt" type="text" placeholder="Search GitHub...">
-        <div class="results"></div>
-     </div>
+      <div class="container col justify-content-center" style="width: 100%"><!--container 1-->
 
-      <div class="container"><!--container 1-->
-
-        <div class="card col card_embedded"><!--card tag 1-->
+        <div class="card col" style="width:900px;"><!--card tag 1-->
           <div class="card-body">
-            <div id = "card_1" class="embed-responsive embed-responsive-16by9">
+            <div id = "card_1" class="embed-responsive embed-responsive-16by9" style="width:800px;">
             </div>
             <button type="button" id="emebeded_link_btn_1" class="btn btn-primary">Show embedded link</button>
             <div id="emebeded_link_1" class="alert alert-primary collapse" role="alert">
@@ -79,14 +74,11 @@
           </div>
         </div>
 
-      
-      </div>
+  <div class="container col justify-content-center collapse"><!--container 2-->
 
-      <div class="container"><!--container 2-->
-
-        <div class="card col card_embedded"><!--card tag 2-->
+        <div class="card col" style="width:900px;"><!--card tag 2-->
           <div class="card-body">
-            <div id = "card_2" class="embed-responsive embed-responsive-16by9">
+            <div id = "card_2" class="embed-responsive embed-responsive-16by9" style="width:800px;">
             </div>
             <button type="button" id="emebeded_link_btn_2" class="btn btn-primary">Show embedded link</button>
             <div id="emebeded_link_2" class="alert alert-primary collapse" role="alert">
@@ -108,8 +100,64 @@
 
       </div>
 
+      
+      </div>
+
+      <div class="container col justify-content-center"><!--container 3-->
+
+        <div class="card col" style="width:900px;"><!--card tag 3-->
+          <div class="card-body">
+            <div id = "card_3" class="embed-responsive embed-responsive-16by9" style="width:800px;">
+            </div>
+            <button type="button" id="emebeded_link_btn_3" class="btn btn-primary">Show embedded link</button>
+            <div id="emebeded_link_3" class="alert alert-primary collapse" role="alert">
+              <p id="link_3"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col collapse" id="info_tag_3"> <!--info tag 3-->
+          <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+              <div class="card-content white-text">
+                <span class="card-title">Guide Book</span>
+                <p>Something something something</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="container col justify-content-center"><!--container 3-->
+
+        <div class="card col" style="width:900px;"><!--card tag 3-->
+          <div class="card-body">
+            <div id = "card_4" class="embed-responsive embed-responsive-16by9" style="width:800px;">
+            </div>
+            <button type="button" id="emebeded_link_btn_4" class="btn btn-primary">Show embedded link</button>
+            <div id="emebeded_link_4" class="alert alert-primary collapse" role="alert">
+              <p id="link_4"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col collapse" id="info_tag_4"> <!--info tag 3-->
+          <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+              <div class="card-content white-text">
+                <span class="card-title">Guide Book</span>
+                <p>Something something something</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
 
   </div>
+
+
 
   <div id="guide_tab" class="collapse container" style="margin-top: 10px;" >
 
@@ -135,7 +183,9 @@
 
 
     var link_array = ["<iframe class=\"embed-responsive-item\" src=\"http://localhost/journalisthelper/src/embedded_chart.php?dataType=cb\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" scrolling='no'></iframe> ", //put embedded link here
-                      "<iframe class=\"embed-responsive-item\" src=\"https://www.youtube.com/embed/8A2t_tAjMz8\" frameborder=\"0\" allow=\"autoplay; encrypted-media\"  scrolling='no'></iframe> "]
+                      "<iframe class=\"embed-responsive-item\" src=\"http://localhost/journalisthelper/src/embedded_chart.php?dataType=gt\" frameborder=\"0\" allow=\"autoplay; encrypted-media\"  scrolling='no'></iframe> ",
+                      "<iframe class=\"embed-responsive-item\" src=\"http://localhost/journalisthelper/src/embedded_chart.php?dataType=si\" frameborder=\"0\" allow=\"autoplay; encrypted-media\"  scrolling='no'></iframe> ",
+                      "<iframe class=\"embed-responsive-item\" src=\"http://localhost/journalisthelper/src/embedded_chart.php?dataType=gt\" frameborder=\"0\" allow=\"autoplay; encrypted-media\"  scrolling='no'></iframe> "]
 
 
     $(document).ready(function(){
@@ -182,6 +232,24 @@
           $("#info_tag_2").hide();
         });
 
+
+      $("#card_3")
+        .append(link_array[2]) //card 3 function
+        .hover(function(){
+          $("#info_tag_3").show();
+        })
+        .mouseout(function(){
+          $("#info_tag_3").hide();
+        });
+      $("#card_4")
+      .append(link_array[3]) //card 3 function
+      .hover(function(){
+        $("#info_tag_4").show();
+      })
+      .mouseout(function(){
+        $("#info_tag_4").hide();
+      });
+
       $("#emebeded_link_btn_1").click(function(){ //link 1 button
         $("#link_1").text(link_array[0]);
         $("#emebeded_link_1").toggle();
@@ -191,6 +259,16 @@
         $("#link_2").text(link_array[1]);
         $("#emebeded_link_2").toggle();
       });
+
+      $("#emebeded_link_btn_3").click(function(){ //link 3 button
+        $("#link_3").text(link_array[2]);
+        $("#emebeded_link_3").toggle();
+      });  
+      
+      $("#emebeded_link_btn_4").click(function(){ //link 3 button
+        $("#link_4").text(link_array[3]);
+        $("#emebeded_link_4").toggle();
+      });  
 
       
     });
