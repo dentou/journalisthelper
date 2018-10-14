@@ -1,5 +1,7 @@
 <?php 
  	$dataType = $_GET['dataType'];
+ 	$displayType = $_GET['displayType'];
+ 	//$timeline = $_GET['timelime'];
 
  	switch ($dataType) {
  		case 'cb':
@@ -36,11 +38,9 @@
 
     <script src="../node_modules/chart.js/dist/Chart.js"></script>
     <canvas id="myChart" width="300" height="300"></canvas>
-    <script id="embedded_chart" dataType="<?php echo htmlspecialchars($dtVar)?>" src="embedded_chart.js">
+    <script id="embedded_chart" dataType="<?php echo htmlspecialchars($dtVar)?>" displayType="<?php echo htmlspecialchars($displayType)?>" src="embedded_chart.js">
 
     </script>
-
-    <p>...After the script.</p>
 
 </body>
 </html>
