@@ -5,14 +5,10 @@
 }
 
 .card_embedded{
-    width: 50rem; 
+    width: 300px; 
     margin-top: 10px;
 }
 
 .search_box{
     width: 50rem; margin-top: 10px;
-}
-
-.pdf_card{
-    font-weight: bolder;
 }

@@ -50,11 +50,10 @@
   <div class="collapse container-fluid" id="embeded_tab" style="margin-left: 100px; margin-top: 10px"> <!--embedded tab-->
 
 
-      <form><!--search box-->
-        <div class="form-group search_box">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-      </form> 
+    <div class="ui search card" style="width: 1000px"> <!--search box-->
+        <input class="prompt" type="text" placeholder="Search GitHub...">
+        <div class="results"></div>
+     </div>
 
       <div class="container"><!--container 1-->
 
@@ -80,6 +79,7 @@
           </div>
         </div>
 
+      
       </div>
 
       <div class="container"><!--container 2-->
@@ -190,6 +190,19 @@
         $("#link_2").text(link_array[1]);
         $("#emebeded_link_2").toggle();
       });
+
+      $(".ui.search")
+        .search({
+        apiSettings: {
+          url: "index.html"
+        },
+        fields: {
+          results : 'items',
+          title   : 'name',
+          url     : 'html_url'
+        },
+        minCharacters : 3
+        });
 
     });
   </script>
