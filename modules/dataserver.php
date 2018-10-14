@@ -18,7 +18,7 @@ while (1) {
     $x = array_column($latestData, 'createdDate');
     $y = array_column($latestData, 'data');
     $data = array(
-        'dataType' =>$dataType;
+        'dataType' =>$dataType,
         'x' => $x,
         'y' => $y
     );

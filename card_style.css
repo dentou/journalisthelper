@@ -1,0 +1,14 @@
+.home_card{
+    width: 18rem; 
+    margin-top: 10px; background :#B2E2E7; 
+    opacity: 0.9
+}
+
+.card_embedded{
+    width: 50rem; 
+    margin-top: 10px;
+}
+
+.search_box{
+    width: 50rem; margin-top: 10px;
+}

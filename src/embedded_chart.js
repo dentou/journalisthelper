@@ -2,6 +2,7 @@
 var dataType = document.getElementById("embedded_chart").getAttribute('dataType');
 
 const MAX_DATA_POINTS = 5;
+const EVENT_SOURCE = '//localhost/journalisthelper/test/dataserver.php';
 
 let data = {
     labels: [],
@@ -43,7 +44,7 @@ drawChart()
 //     data: data
 // });
 
-let eventSource = new EventSource('//localhost/journalisthelper/modules/dataserver.php?dataType=' + dataType);
+let eventSource = new EventSource('//localhost/journalisthelper/modules/dataserver.php');
 console.log(eventSource.withCredentials);
 console.log(eventSource.readyState);
 console.log(eventSource.url);
@@ -69,9 +70,9 @@ eventSource.addEventListener("update", function (event) {
 eventSource.addEventListener("init", function (event) {
     console.log(event.data);
     let jdata = JSON.parse(event.data);
-
     dataChart.destroy();
-    createDataset(jdata.datasetlabel)
+
+    createDataset(jdata.dataType)
     dataChart = Chart.Line("myChart", {
         options: options,
         data: data
@@ -138,4 +139,18 @@ function removeDataset(chart, removalIndex) {
     if(removalIndex >= 0) { //make sure this element exists in the array
         data.datasets.splice(removalIndex, 1);
     }
+}
+function createDataset(datasetLabel) {
+    data = {
+        labels: [],
+        datasets: [{
+            label: datasetLabel,
+            backgroundColor: "rgba(255,99,132,0.2)",
+            borderColor: "rgba(255,99,132,1)",
+            borderWidth: 2,
+            hoverBackgroundColor: "rgba(255,99,132,0.4)",
+            hoverBorderColor: "rgba(255,99,132,1)",
+            data: [],
+        }]
+    };
 }
