@@ -8,7 +8,7 @@ while (1) {
 
     $data = array(
         'x' => $curDate,
-        'y' => rand(50, 60)
+        'y' => rand(20, 40)
     );
     $str = json_encode($data);
     echo "event: update\n",
@@ -18,13 +18,14 @@ while (1) {
 //    echo "event: ping\n",
 //        'data: {"time": "' . $curDate . '"}', "\n\n";
 
-    // Send a simple message at random intervals.
-//    $counter--;
-//    if (!$counter) {
-//        echo 'data: This is a message at time ' . $curDate, "\n\n";
-//
-//        $counter = rand(1, 10); // reset random counter
-//    }
+     // Send a simple message at random intervals.
+    $counter--;
+    if (!$counter) {
+        echo "event: init\n",
+        'data: {"datasetlabel" : "temperature", "x" : [1, 2, 3, 4, 5], "y" : [20, 42, 30, 36, 28]}', "\n\n";
+
+        $counter = rand(1, 10); // reset random counter
+    }
 
     // flush the output buffer and send echoed messages to the browser
     while (ob_get_level() > 0) {
