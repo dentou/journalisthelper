@@ -28,6 +28,7 @@
           <li class="nav_tab" id="home_nav" >HOME</li>
           <li class="nav_tab" id="emebeded_nav">DATA</li>
           <li class="nav_tab" id="guide_nav">GUIDE BOOK</li>
+          <li class="nav_tab" id="test_nav">TEST BENCH</li>
         </ul>
       </nav>
     </div>
@@ -155,7 +156,7 @@
 
 
 
-  <div id="guide_tab" class="collapse container" style="margin-top: 10px;" >
+  <div id="guide_tab" class="container collapse" style="margin-top: 10px;" >
 
     <div class="row">
       
@@ -173,6 +174,43 @@
     
   </div>
 
+  <div id="test_tab" class="container collapse " style="margin-top: 10px;">
+
+    <div class="card">
+      <div class="card-body">
+        <p>
+          Sachte einige gassen mussen wo zu ri. Dem ist das keine darin ortes. Luke ob froh dies im. Ding da steh haar fort habs wo ohne. Scherzwort aufzulosen wer hinstellte ihr unsicherer hol. Hochmut du sagerei ubrigen sa so dunklen er. Konntest zu schlafen horchend verwirrt schuppen ja da kurioses. Indessen dem ige lockigen mut halbwegs getraumt. Klang man dafur gru ige uns blank. En zu vielleicht hoffnungen marktplatz fu mu. 
+
+  Funf bis hut lag gern vor ruth. Dem blieb sei dahin vom hoher. Dank bett du soll dort ja brot. Wo gelehnt dichten stickig em barbele se in fadelte. Vogelnest was den gro unwissend schwachem. Gro geschwatzt aufgespart lattenzaun das gerbersteg bodenlosen leuchtturm. Kenne sonne herrn unter mag der genug. Schleiche in gegenteil verstehen ob viehmarkt ja ja besserung. Ziegen gerber reihen wei ten. 
+
+  Dahin gutes ob an ja riefe woher wovon. Hinabsah ein bei neu tor trostlos wirklich lampchen. Ei vorwarts brauchen wo freundes spielend la. Das gab bis euren feuer jeder enden kenne. Zwei sohn wies erst floh um kein du. Verwirrt eigentum kindbett zu in sorgfalt nebenaus sa. Es es kenne ab ihnen kaute in. Hausherr erschrak ja gegessen um ja um ehrbaren. 
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input type="text" id="test_link" placeholder="Insert embedded link" style="background-color: white;" value="">
+      <button class="btn btn-primary" id="test_btn">Insert!</button>
+    </div>
+
+    <div class="card" id="insert_embedded_test">
+      
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <p>
+
+            Ja zu es jenseits spannung kollegen du frohlich. Diesen burger zeigen im druben em da stimme. War eile also gast alle zog bist habe. Verlangst uns lie verodeten schwemmen nebendran angerufen die. Tat sie der aller fur knopf ernst. Kindliche ob kammertur du geblendet em gegenteil schreiben. Guter alles sie notig gib reist hielt hut. Betrachtet launischen ri er grashalden so du. Kam geruckt ich familie vor horchte man. 
+
+            Haften handen baumen wisset ja em da. Ins ein ige sogar weste wesen. Duse da ging neue da. Bett um hier darf eine oden te ward. Begleitete arbeitsame tat geschwatzt ist todesfalle ins. Gelernt wu schritt bosheit pa da dunklen wo. Rabatten ku lauschte tadellos entgegen zugvogel es es erzahlen. Trillern nur bis zinnerne auf befehlen schonste. Bibel sei angst tal ihr nun gehen. En se bilderbuch bugeleisen 
+          
+        </p>
+      </div>
+    </div>
+
+  </div>
+
 </body>
 
   <script>
@@ -187,28 +225,40 @@
     $(document).ready(function(){
 
       $("#home_nav").click(function(){ //home tab
-        $("#home_tab").toggle();
+        $("#home_tab").show();
         $("#embeded_tab").hide();
         $("#guide_tab").hide();
+        $("#test_tab").hide();
 
       });
       
       $("#emebeded_nav").click(function(){ //emebedded tab
         $("#home_tab").hide();
-        $("#embeded_tab").toggle();
+        $("#embeded_tab").show();
         $("#guide_tab").hide();
+        $("#test_tab").hide();
       });
 
       $("#guide_nav").click(function(){ //guide tab
         $("#home_tab").hide();
         $("#embeded_tab").hide();
-        $("#guide_tab").toggle();
+        $("#guide_tab").show();
+        $("#test_tab").hide();
+      });
+
+      $("#test_nav").click(function(){ //guide tab
+        $("#home_tab").hide();
+        $("#embeded_tab").hide();
+        $("#guide_tab").hide();
+        $("#test_tab").show();
       });
 
       $("#home_link_btn").click(function(){ //home button
         $("#home_tab").hide();
         $("#embeded_tab").show();
       });
+
+      
 
       $("#card_1")
         .append(link_array[0]) //card 1 function
@@ -265,7 +315,11 @@
         $("#link_4").text(link_array[3]);
         $("#emebeded_link_4").toggle();
       });  
-
+      
+      $("#test_btn").click(function(){
+        var test_link = $("#test_link").val();
+        $("#insert_embedded_test").append(test_link);
+      });
       
     });
   </script>
