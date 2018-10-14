@@ -34,7 +34,7 @@
 </head>
 <body>
 
-    <p><?php echo htmlspecialchars($dtName);?> data</p>
+    <a href="//localhost/journalisthelper" target="_parent"><p><?php echo htmlspecialchars($dtName);?> data</p></a>
 
     <script src="../node_modules/chart.js/dist/Chart.js"></script>
     <canvas id="myChart"></canvas>
