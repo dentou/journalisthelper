@@ -31,7 +31,14 @@ eventSource.addEventListener("ping", function(e) {
     eventList.appendChild(newElement);
 }, false);
 
+
+
 eventSource.addEventListener("update", function (event) {
-    var jdata = JSON.parse(event.data);
+    let jdata = JSON.parse(event.data);
+    console.log(jdata);
+})
+
+eventSource.addEventListener("init", function (event) {
+    let jdata = JSON.parse(event.data);
     console.log(jdata);
 })
