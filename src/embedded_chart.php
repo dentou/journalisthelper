@@ -1,6 +1,6 @@
 <?php 
  	$dataType = $_GET['dataType'];
- 	$displayType = $_GET['displayType'];
+ 	//$displayType = $_GET['displayType'];
  	//$timeline = $_GET['timelime'];
 
  	switch ($dataType) {
