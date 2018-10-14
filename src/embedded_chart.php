@@ -5,16 +5,20 @@
 
  	switch ($dataType) {
  		case 'cb':
- 			$dtName = "Carbon";
+ 			$dtName = "Carbons";
+            $dtVar = "carbons";
  			break;
  		case 'gt':
  			$dtName = "Global Tenperature";
+            $dtvar = "globaltemperature";
  			break;
 		case 'si':
 			$dtName = "Sea Ice";
+            $dtvar = "seaice";
 			break;
 		case 'sl':
 			$dtName = "Sea Level";
+            $dtvar = "sealevel";
 			break;	
  		default:
  			die('invalid link');
@@ -34,7 +38,7 @@
 
     <script src="../node_modules/chart.js/dist/Chart.js"></script>
     <canvas id="myChart" width="300" height="300"></canvas>
-    <script src="embedded_chart.js">
+    <script id="embedded_chart" dataType="<?php echo htmlspecialchars($dtVar)?>" src="embedded_chart.js">
 
     </script>
 

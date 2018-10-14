@@ -1,4 +1,5 @@
 <?php
+$dataType = 'carbons';
 date_default_timezone_set("America/New_York");
 header("Content-Type: text/event-stream");
 $counter = rand(1, 10); // a random counter
@@ -11,12 +12,13 @@ $flag = '5';
 
 while (1) {
 // 1 is always true, so repeat the while loop forever (aka event-loop)
-    $latestData = $db->query('SELECT data, createdDate FROM carbons ORDER BY id DESC LIMIT '.$flag, array());
+    $latestData = $db->query('SELECT data, createdDate FROM '.$dataType.' ORDER BY id DESC LIMIT '.$flag, array());
 
     // 1 is always true, so repeat the while loop forever (aka event-loop)
     $x = array_column($latestData, 'createdDate');
     $y = array_column($latestData, 'data');
     $data = array(
+        'dataType' =>$dataType;
         'x' => $x,
         'y' => $y
     );
