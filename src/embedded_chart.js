@@ -1,4 +1,6 @@
 "use strict";
+var dataType = document.getElementById("embedded_chart").getAttribute('dataType');
+var displayType = document.getElementById("embedded_chart").getAttribute('displayType');
 
 const MAX_DATA_POINTS = 5;
 const EVENT_SOURCE = '//localhost/journalisthelper/test/dataserver.php';
@@ -43,7 +45,7 @@ drawChart()
 //     data: data
 // });
 
-let eventSource = new EventSource(EVENT_SOURCE);
+let eventSource = new EventSource('//localhost/journalisthelper/modules/dataserver.php?dataType=' + dataType + '&displayType=' + displayType);
 console.log(eventSource.withCredentials);
 console.log(eventSource.readyState);
 console.log(eventSource.url);
@@ -61,31 +63,13 @@ eventSource.onerror = function() {
     console.log("EventSource failed.");
 };
 
-eventSource.addEventListener("update", function (event) {
-    let jdata = JSON.parse(event.data);
-    addData(dataChart, 0, jdata.x, jdata.y);
-})
 
-eventSource.addEventListener("init", function (event) {
-    console.log(event.data);
-    let jdata = JSON.parse(event.data);
-    dataChart.destroy();
-    createDataset(jdata.dataType)
-    dataChart = Chart.Line("myChart", {
-        options: options,
-        data: data
-    });
-    // removeDataset(dataChart, 0);
-    let labels  = jdata.x;
-    let values = jdata.y;
-    let i;
-    for (i = 0; i < labels.length; i++) {
-        addData(dataChart, 0, labels[i], values[i]);
-    }
 
-    // let jdata = JSON.parse(event.data);
-    console.log(jdata);
-})
+eventSource.addEventListener("init", multiDataHandler);
+
+eventSource.addEventListener("update", singleDataHandler);
+
+eventSource.addEventListener("alldata", multiDataHandler);
 
 function drawChart() {
     dataChart = Chart.Line("myChart", {
@@ -102,6 +86,35 @@ function addData(chart, dataSetIndex, label, data) {
         removeData(chart, dataSetIndex, 0);
     }
     chart.update();
+}
+
+
+
+function multiDataHandler(event) {
+    console.log(event.data);
+    let jdata = JSON.parse(event.data);
+    dataChart.destroy();
+
+    createDataset(jdata.dataType)
+    dataChart = Chart.Line("myChart", {
+        options: options,
+        data: data
+    });
+    // removeDataset(dataChart, 0);
+    let labels  = jdata.x;
+    let values = jdata.y;
+    let i;
+    for (i = 0; i < labels.length; i++) {
+        addData(dataChart, 0, labels[i], values[i]);
+    }
+
+    // let jdata = JSON.parse(event.data);
+    // console.log(jdata);
+}
+
+function singleDataHandler(event) {
+    let jdata = JSON.parse(event.data);
+    addData(dataChart, 0, jdata.x, jdata.y);
 }
 
 function removeData(chart, dataSetIndex) {
@@ -123,8 +136,6 @@ function removeDataset(chart, removalIndex) {
         data.datasets.splice(removalIndex, 1);
     }
 }
-
-
 
 function createDataset(datasetLabel) {
     data = {

@@ -1,20 +1,24 @@
 <?php 
  	$dataType = $_GET['dataType'];
  	$displayType = $_GET['displayType'];
- 	$timeline = $_GET['timelime'];
+ 	//$timeline = $_GET['timelime'];
 
  	switch ($dataType) {
  		case 'cb':
- 			$dtName = "Carbon";
+ 			$dtName = "Carbons";
+            $dtVar = "carbons";
  			break;
  		case 'gt':
  			$dtName = "Global Tenperature";
+            $dtVar = "globaltemperature";
  			break;
 		case 'si':
 			$dtName = "Sea Ice";
+            $dtVar = "seaice";
 			break;
 		case 'sl':
 			$dtName = "Sea Level";
+            $dtVar = "sealevel";
 			break;	
  		default:
  			die('invalid link');
@@ -34,11 +38,9 @@
 
     <script src="../node_modules/chart.js/dist/Chart.js"></script>
     <canvas id="myChart" width="300" height="300"></canvas>
-    <script src="embedded_chart.js">
+    <script id="embedded_chart" dataType="<?php echo htmlspecialchars($dtVar)?>" displayType="<?php echo htmlspecialchars($displayType)?>" src="embedded_chart.js">
 
     </script>
-
-    <p>...After the script.</p>
 
 </body>
 </html>

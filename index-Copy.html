@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Index </title>
+
+    <link rel="stylesheet" href="static/css/nav_bar.css">
+    <link rel="stylesheet" href="static/css/card_style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+  
+  </head>
+  <body>
+    <header>
+    <div class="container">
+      <h1 class="logo">
+        <a href="https://unesco.sciencehack.asia/"><img src="static/img/fossasia_logo.png " style="width: 125px"></a>
+      </h1>
+
+      <nav>
+        <ul>
+          <li class="nav_tab" id="home_nav" >HOME</li>
+          <li class="nav_tab" id="emebeded_nav">EMBEDED</li>
+          <li class="nav_tab" id="guide_nav">GUIDE BOOK</li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div id="home_tab" class="container"><!--home tab-->
+    <div class="card home_card">
+      <img class="card-img-top" src="static/img/vgu_logo.png" alt="Card image cap">
+      <div class="card-body">
+        <h1 class="card-title">J.E.A</h1>
+        <p class="card-text">This is a place where you can find there trusty source about climate change problems and implemented them into your article</p>
+        <button id="home_link_btn" class="btn btn-primary">Find out now!</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="collapse" id="embeded_tab" class="container-fluid" style="margin-left: 100px; margin-top: 10px"> <!--embedded tab-->
+
+
+      <form><!--search box-->
+        <div class="form-group search_box">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+      </form> 
+
+      <div class="container"><!--container 1-->
+
+        <div class="card col card_embedded"><!--card tag 1-->
+          <div class="card-body">
+            <div id = "card_1" class="embed-responsive embed-responsive-16by9">
+            </div>
+            <button type="button" id="emebeded_link_btn_1" class="btn btn-primary">Show embedded link</button>
+            <div id="emebeded_link_1" class="alert alert-primary collapse" role="alert">
+              <p id="link_1"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col collapse" id="info_tag_1"> <!--info tag 1-->
+          <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+              <div class="card-content white-text">
+                <span class="card-title">Enviroment Data</span>
+                <p>This app provides you a real-time data tracker of Southern Vietam climate properties. Data included: temperature, humid, rain, sea level</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="container"><!--container 2-->
+
+        <div class="card col card_embedded"><!--card tag 2-->
+          <div class="card-body">
+            <div id = "card_2" class="embed-responsive embed-responsive-16by9">
+            </div>
+            <button type="button" id="emebeded_link_btn_2" class="btn btn-primary">Show embedded link</button>
+            <div id="emebeded_link_2" class="alert alert-primary collapse" role="alert">
+              <p id="link_2"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col collapse" id="info_tag_2"> <!--info tag 2-->
+          <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+              <div class="card-content white-text">
+                <span class="card-title">Guide Book</span>
+                <p>Something something something</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+  </div>
+
+</body>
+
+  <script>
+
+    var link_array = ["<iframe class=\"embed-responsive-item\" src=\"http://localhost/journalisthelper/src/embedded_chart.php\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe> ",
+                      "<iframe class=\"embed-responsive-item\" src=\"https://www.youtube.com/embed/8A2t_tAjMz8\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe> "]
+
+
+    $(document).ready(function(){
+
+      $("#home_nav").click(function(){ //home tab
+        $("#home_tab").show();
+        $("#embeded_tab").hide();
+      });
+      
+      $("#emebeded_nav").click(function(){ //emebedded tab
+        $("#home_tab").hide();
+        $("#embeded_tab").show();
+      });
+
+      $("#home_link_btn").click(function(){ //home button
+        $("#home_tab").hide();
+        $("#embeded_tab").show();
+      });
+
+      $("#card_1")
+        .append(link_array[0]) //card 1 function
+        .hover(function(){
+          $("#info_tag_1").show();
+        })
+        .mouseout(function(){
+          $("#info_tag_1").hide();
+      });
+
+      $("#card_2")
+        .append(link_array[1]) //card 2 function
+        .hover(function(){
+          $("#info_tag_2").show();
+        })
+        .mouseout(function(){
+          $("#info_tag_2").hide();
+        });
+
+      $("#emebeded_link_btn_1").click(function(){ //link 1 button
+        $("#link_1").text(link_array[0]);
+        $("#emebeded_link_1").toggle();
+      });
+      
+      $("#emebeded_link_btn_2").click(function(){ //link 2 button
+        $("#link_2").text(link_array[1]);
+        $("#emebeded_link_2").toggle();
+      });
+
+    });
+  </script>
+
+</html>
