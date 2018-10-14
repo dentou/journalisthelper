@@ -7,10 +7,11 @@ require_once("../api/DB.php");
 
 $db = new DB('localhost', 'journalisthelper', 'root', '');
 $event = 'init';
+$flag = '5';
 
 while (1) {
 // 1 is always true, so repeat the while loop forever (aka event-loop)
-    $latestData = $db->query('SELECT data, createdDate FROM carbons ORDER BY id DESC LIMIT 5', array());
+    $latestData = $db->query('SELECT data, createdDate FROM carbons ORDER BY id DESC LIMIT '.$flag, array());
 
     // 1 is always true, so repeat the while loop forever (aka event-loop)
     $x = array_column($latestData, 'createdDate');
@@ -22,7 +23,7 @@ while (1) {
     $str = json_encode($data);
     echo "event: ".$event."\n",
         "data: {$str}\n\n";
-
+    $flag = '1';
     $event = 'update';
 
     $curDate = date(DATE_ISO8601);

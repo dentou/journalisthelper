@@ -73,10 +73,15 @@ eventSource.addEventListener("init", function (event) {
         options: options,
         data: data
     });
-    addData(dataChart, 0, jdata.x, jdata.y);
+    let labels = jdata.x;
+    let values = jdata.y;
+    let i;
+    for (i = 0; i < labels.length; i++) {
+        addData(dataChart, 0, labels[i], values[i]);
+    }
 
     // let jdata = JSON.parse(event.data);
-    // console.log(jdata);
+    console.log(jdata);
 })
 
 function drawChart() {
