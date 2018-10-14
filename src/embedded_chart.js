@@ -41,7 +41,7 @@ drawChart()
 //     data: data
 // });
 
-let eventSource = new EventSource('//localhost/journalisthelper/dataserver.php');
+let eventSource = new EventSource('//localhost/journalisthelper/test/dataserver.php');
 console.log(eventSource.withCredentials);
 console.log(eventSource.readyState);
 console.log(eventSource.url);
@@ -65,13 +65,21 @@ eventSource.addEventListener("update", function (event) {
 })
 
 eventSource.addEventListener("init", function (event) {
+    console.log(event.data);
     let jdata = JSON.parse(event.data);
     dataChart.destroy();
+    createDataset(jdata.datasetlabel)
     dataChart = Chart.Line("myChart", {
         options: options,
         data: data
     });
-    addData(dataChart, 0, jdata.x, jdata.y);
+    // removeDataset(dataChart, 0);
+    let labels  = jdata.x;
+    let values = jdata.y;
+    let i;
+    for (i = 0; i < labels.length; i++) {
+        addData(dataChart, 0, labels[i], values[i]);
+    }
 
     // let jdata = JSON.parse(event.data);
     // console.log(jdata);
@@ -94,6 +102,21 @@ function addData(chart, dataSetIndex, label, data) {
     chart.update();
 }
 
+function createDataset(datasetLabel) {
+    data = {
+        labels: [],
+        datasets: [{
+            label: datasetLabel,
+            backgroundColor: "rgba(255,99,132,0.2)",
+            borderColor: "rgba(255,99,132,1)",
+            borderWidth: 2,
+            hoverBackgroundColor: "rgba(255,99,132,0.4)",
+            hoverBorderColor: "rgba(255,99,132,1)",
+            data: [],
+        }]
+    };
+}
+
 function removeData(chart, dataSetIndex) {
     chart.data.labels.pop();
     chart.data.datasets[dataSetIndex].data.pop();
@@ -105,5 +128,11 @@ function removeData(chart, dataSetIndex, removalIndex) {
         data.datasets[dataSetIndex].data.splice(removalIndex, 1);
         chart.data.labels.splice(removalIndex, 1);
         chart.update();
+    }
+}
+
+function removeDataset(chart, removalIndex) {
+    if(removalIndex >= 0) { //make sure this element exists in the array
+        data.datasets.splice(removalIndex, 1);
     }
 }
