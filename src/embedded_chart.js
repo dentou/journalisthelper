@@ -88,20 +88,7 @@ function addData(chart, dataSetIndex, label, data) {
     chart.update();
 }
 
-function createDataset(datasetLabel) {
-    data = {
-        labels: [],
-        datasets: [{
-            label: datasetLabel,
-            backgroundColor: "rgba(255,99,132,0.2)",
-            borderColor: "rgba(255,99,132,1)",
-            borderWidth: 2,
-            hoverBackgroundColor: "rgba(255,99,132,0.4)",
-            hoverBorderColor: "rgba(255,99,132,1)",
-            data: [],
-        }]
-    };
-}
+
 
 function multiDataHandler(event) {
     console.log(event.data);
@@ -149,6 +136,7 @@ function removeDataset(chart, removalIndex) {
         data.datasets.splice(removalIndex, 1);
     }
 }
+
 function createDataset(datasetLabel) {
     data = {
         labels: [],
@@ -163,3 +151,4 @@ function createDataset(datasetLabel) {
         }]
     };
 }
+
