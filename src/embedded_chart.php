@@ -32,12 +32,12 @@
     <meta charset="UTF-8">
     <title><?php echo htmlspecialchars($dtName);?></title>
 </head>
-<body>
+<body width="100%" height="100%">
 
     <p><?php echo htmlspecialchars($dtName);?> data</p>
 
     <script src="../node_modules/chart.js/dist/Chart.js"></script>
-    <canvas id="myChart" width="300" height="300"></canvas>
+    <canvas id="myChart"></canvas>
     <script id="embedded_chart" dataType="<?php echo htmlspecialchars($dtVar)?>" displayType="<?php echo htmlspecialchars($displayType)?>" src="embedded_chart.js">
 
     </script>
